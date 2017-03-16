@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.dqr.www.custui_one.utils.DisplayUtil;
+import com.dqr.www.custui_one.widgets.rowview.MixDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.baseview.ContainerView;
 import com.dqr.www.custui_one.widgets.rowview.bean.GroupDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
@@ -25,9 +26,19 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
         setContentView(R.layout.activity_main);
 
         containerView = (ContainerView) findViewById(R.id.containerView);
-
-
         ArrayList<GroupDescriptor> groupDescriptors = new ArrayList<>();
+
+        GroupDescriptor groupDescriptor3 = new GroupDescriptor();
+        MixDescriptor mixDescriptor = new MixDescriptor(R.drawable.girl);
+        mixDescriptor.girl(R.drawable.girl)
+                .nice("不修")
+                .number("52082888")
+                .hasAction(true);
+        groupDescriptor3.addDescriptor(mixDescriptor)
+                        .isHasPaddingTop(true)
+                        .bottomLabel("")
+                        .setListener(this);;
+
         GroupDescriptor groupDescriptor = new GroupDescriptor();
         NormalDescriptor descriptor1 = new NormalDescriptor(R.drawable.one);
         descriptor1.iconResId(R.drawable.one)
@@ -94,15 +105,18 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
         groupDescriptor2.addDescriptor(descriptor8);
 
         groupDescriptor2.dividerLayout.setMargins(DisplayUtil.dip2px(this,12),0,0,0);
-        groupDescriptor2
+        groupDescriptor2.isHasPaddingTop(true)
                 .headerLayout(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(this, 16)))
                 .headerPadding(DisplayUtil.dip2px(this,12),0,0,0)
                 .bottomPadding(DisplayUtil.dip2px(this,12),0,0,0)
                 .setListener(this);
 
+        groupDescriptors.add(groupDescriptor3);
         groupDescriptors.add(groupDescriptor);
         groupDescriptors.add(groupDescriptor2);
+
         containerView.initData(groupDescriptors);
+
 
     }
 

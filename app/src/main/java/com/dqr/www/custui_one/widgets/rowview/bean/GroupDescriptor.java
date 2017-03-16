@@ -3,6 +3,7 @@ package com.dqr.www.custui_one.widgets.rowview.bean;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.dqr.www.custui_one.R;
 import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
 
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ public class GroupDescriptor {
     public String headerLabel;
     public boolean isHeaderHtml;
     public int headerSize;
-    public int headerTextColor= android.R.color.white;
-    public int headerBgColor =android.R.color.darker_gray;
+    public int headerTextColor= android.R.color.darker_gray;
+    public int headerBgColor =R.color.holo_gray_bright;
     public LinearLayout.LayoutParams headerLayout=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     public int headerPaddingL;
     public int headerPaddingT;
@@ -31,8 +32,8 @@ public class GroupDescriptor {
 
     //底部标签栏设置
     public int bottomSize;
-    public int bottomTextColor= android.R.color.white;
-    public int bottomBgColor =android.R.color.darker_gray;
+    public int bottomTextColor= android.R.color.darker_gray;
+    public int bottomBgColor =R.color.holo_gray_bright;
     public String bottomLabel;
     public LinearLayout.LayoutParams bottomLayout=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     public int bottomPaddingL;

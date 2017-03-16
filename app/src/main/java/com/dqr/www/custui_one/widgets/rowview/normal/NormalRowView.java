@@ -1,7 +1,6 @@
 package com.dqr.www.custui_one.widgets.rowview.normal;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -37,9 +36,6 @@ public class NormalRowView extends BaseRowView<NormalDescriptor> implements View
     private ImageView mRowActionImg;
 
 
-
-    protected int mBgResId = R.drawable.normal_row_selector;
-    protected int mUnNormalBgResId = Color.WHITE;
 
     public NormalRowView(Context context) {
         super(context);
@@ -96,7 +92,7 @@ public class NormalRowView extends BaseRowView<NormalDescriptor> implements View
                 mRowActionImg.setImageResource(descriptor.mActionResId);
                 mRowActionImg.setVisibility(VISIBLE);
             }else{
-                setBackgroundColor(mUnNormalBgResId);
+                setBackgroundResource(mUnNormalBgResId);
                 mRowActionImg.setVisibility(GONE);
             }
 

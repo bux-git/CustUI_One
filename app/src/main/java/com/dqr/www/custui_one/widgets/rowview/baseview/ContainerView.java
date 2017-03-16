@@ -62,7 +62,7 @@ public class ContainerView extends LinearLayout {
             LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             for(int i=0;i<mGroupDescriptors.size();i++){
                 groupView = new GroupView(mContext);
-                groupView.initData(mGroupDescriptors.get(i).isHasPaddingTop(true));
+                groupView.initData(mGroupDescriptors.get(i));
 
                 addView(groupView,params);
             }

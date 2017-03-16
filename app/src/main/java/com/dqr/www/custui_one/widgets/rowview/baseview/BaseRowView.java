@@ -1,7 +1,6 @@
 package com.dqr.www.custui_one.widgets.rowview.baseview;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -21,7 +20,7 @@ import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
 public abstract class BaseRowView<T extends BaseRowDescriptor> extends LinearLayout {
 
     protected int mBgResId = R.drawable.normal_row_selector;
-    protected int mUnNormalBgResId = Color.WHITE;
+    protected int mUnNormalBgResId =android.R.color.white;
     protected OnRowChangedListener mListener;
     protected T descriptor;
 

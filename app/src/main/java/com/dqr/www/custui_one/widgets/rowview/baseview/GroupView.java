@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dqr.www.custui_one.widgets.rowview.MixDescriptor;
+import com.dqr.www.custui_one.widgets.rowview.MixRowView;
 import com.dqr.www.custui_one.widgets.rowview.bean.BaseRowDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.bean.GroupDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.normal.NormalDescriptor;
@@ -98,6 +100,8 @@ public class GroupView extends LinearLayout {
 
                 if(descriptor instanceof NormalDescriptor){
                     rowView = new NormalRowView(mContext);
+                }else if(descriptor instanceof MixDescriptor){
+                    rowView = new MixRowView(mContext);
                 }
                 rowView.setId(descriptor.rowId);
                 rowView.setListener(mGroupDescriptor.mListener);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_girl"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/girl"/>
+
+    <TextView
+        android:id="@+id/tv_nice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/iv_girl"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        tools:text="不修"/>
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tv_nice"
+              android:layout_marginTop="2dp"
+              android:layout_toRightOf="@+id/iv_girl"
+              android:textSize="12sp"
+              tools:text="wxNumber:47125546"/>
+
+    <ImageView
+        android:id="@+id/mRowActionImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        tools:src="@mipmap/ic_launcher_round"/>
+</RelativeLayout>
