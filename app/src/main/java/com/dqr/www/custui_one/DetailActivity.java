@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity implements OnRowChangedLis
 
     private void init() {
         mContainerView = (ContainerView) findViewById(R.id.containerView);
-        //初始化内容也数据
+        //初始化内容数据
         ArrayList<GroupDescriptor> groupDescriptors = new ArrayList<>();
 
         //初始化第一组Group数据
@@ -95,7 +95,9 @@ public class DetailActivity extends AppCompatActivity implements OnRowChangedLis
                 .addDescriptor(education);
         groupDescriptors.add(group3);
 
+        //设置事件
         mContainerView.setListener(this);
+        //给ContainerView设置数据
         mContainerView.initData(groupDescriptors);
 
     }
