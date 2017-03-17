@@ -1,12 +1,10 @@
 package com.dqr.www.custui_one;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.dqr.www.custui_one.utils.DisplayUtil;
 import com.dqr.www.custui_one.widgets.rowview.MixDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.baseview.ContainerView;
 import com.dqr.www.custui_one.widgets.rowview.bean.GroupDescriptor;
@@ -25,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         containerView = (ContainerView) findViewById(R.id.containerView);
         ArrayList<GroupDescriptor> groupDescriptors = new ArrayList<>();
 
@@ -35,9 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
                 .number("52082888")
                 .hasAction(true);
         groupDescriptor3.addDescriptor(mixDescriptor)
-                        .isHasPaddingTop(true)
-                        .bottomLabel("")
-                        .setListener(this);;
+                        .headerView(this);
 
         GroupDescriptor groupDescriptor = new GroupDescriptor();
         NormalDescriptor descriptor1 = new NormalDescriptor(R.drawable.one);
@@ -67,12 +65,8 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
         groupDescriptor.addDescriptor(descriptor3);
         groupDescriptor.addDescriptor(descriptor4);
 
-        groupDescriptor.dividerLayout.setMargins(DisplayUtil.dip2px(this,12),0,0,0);
-        groupDescriptor.isHasPaddingTop(false)
-                .headerLayout(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(this, 16)))
-                .headerPadding(DisplayUtil.dip2px(this,12),0,0,0)
-                .bottomPadding(DisplayUtil.dip2px(this,12),0,0,0)
-                .setListener(this);
+
+        groupDescriptor.headerView(this);
 
 
         GroupDescriptor groupDescriptor2 = new GroupDescriptor();
@@ -104,25 +98,30 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
         groupDescriptor2.addDescriptor(descriptor7);
         groupDescriptor2.addDescriptor(descriptor8);
 
-        groupDescriptor2.dividerLayout.setMargins(DisplayUtil.dip2px(this,12),0,0,0);
-        groupDescriptor2.isHasPaddingTop(true)
-                .headerLayout(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(this, 16)))
-                .headerPadding(DisplayUtil.dip2px(this,12),0,0,0)
-                .bottomPadding(DisplayUtil.dip2px(this,12),0,0,0)
-                .setListener(this);
+
+        groupDescriptor2.headerView(this);
 
         groupDescriptors.add(groupDescriptor3);
         groupDescriptors.add(groupDescriptor);
         groupDescriptors.add(groupDescriptor2);
 
+        containerView.setListener(this);
         containerView.initData(groupDescriptors);
+
 
 
     }
 
     @Override
     public void onRowChanged(int rowId) {
-        Toast.makeText(this,rowId+"",Toast.LENGTH_SHORT).show();
+        if(rowId==R.id.iv_girl) {
+            Toast.makeText(this, rowId + " ImageView clicked", Toast.LENGTH_SHORT).show();
+        }else if(rowId==R.drawable.girl){
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, rowId + "", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

@@ -1,10 +1,12 @@
 package com.dqr.www.custui_one.widgets.rowview.bean;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.dqr.www.custui_one.R;
-import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
 
 import java.util.ArrayList;
 
@@ -18,146 +20,68 @@ import java.util.ArrayList;
 public class GroupDescriptor {
 
 
-    //头部标签栏设置
-    public String headerLabel;
-    public boolean isHeaderHtml;
-    public int headerSize;
-    public int headerTextColor= android.R.color.darker_gray;
-    public int headerBgColor =R.color.holo_gray_bright;
-    public LinearLayout.LayoutParams headerLayout=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    public int headerPaddingL;
-    public int headerPaddingT;
-    public int headerPaddingR;
-    public int headerPaddingB;
-
+    public View headerView;
     //底部标签栏设置
-    public int bottomSize;
-    public int bottomTextColor= android.R.color.darker_gray;
-    public int bottomBgColor =R.color.holo_gray_bright;
-    public String bottomLabel;
-    public LinearLayout.LayoutParams bottomLayout=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    public int bottomPaddingL;
-    public int bottomPaddingT;
-    public int bottomPaddingR;
-    public int bottomPaddingB;
+    public View bottomView;
 
     //分割线设置
-    public int dividerColor =android.R.color.darker_gray;
-    public LinearLayout.LayoutParams dividerLayout=new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,1);
-
+    public int dividerResId= R.layout.divider_line_layout;
+    public LinearLayout.LayoutParams dividerParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
 
     //背景颜色
-    public int bgColor =android.R.color.white;
+    public int bgColor = android.R.color.white;
 
-    public boolean isHasPaddingTop=false;
 
     public ArrayList<BaseRowDescriptor> mDescriptors;
-    public OnRowChangedListener mListener;
 
 
-    public GroupDescriptor headerPadding(int headerPaddingL,int headerPaddingT,int headerPaddingR,int headerPaddingB){
-        this.headerPaddingL=headerPaddingL;
-        this.headerPaddingT=headerPaddingT;
-        this.headerPaddingR=headerPaddingR;
-        this.headerPaddingB=headerPaddingB;
-        return this;
-    }
 
-    public GroupDescriptor bottomPadding(int bottomPaddingL,int bottomPaddingT,int bottomPaddingR,int bottomPaddingB){
-        this.bottomPaddingL=bottomPaddingL;
-        this.bottomPaddingT=bottomPaddingT;
-        this.bottomPaddingR=bottomPaddingR;
-        this.bottomPaddingB=bottomPaddingB;
-        return this;
-    }
-
-    public GroupDescriptor addDescriptor(BaseRowDescriptor descriptor){
-        if(mDescriptors==null){
+    public GroupDescriptor addDescriptor(BaseRowDescriptor descriptor) {
+        if (mDescriptors == null) {
             mDescriptors = new ArrayList<>();
         }
         mDescriptors.add(descriptor);
         return this;
     }
 
-    public GroupDescriptor dividerLayout(LinearLayout.LayoutParams dividerLayout){
-        this.dividerLayout=dividerLayout;
+
+    public GroupDescriptor bgColor(int bgColor) {
+        this.bgColor = bgColor;
         return this;
     }
 
-    public GroupDescriptor bottomLayout(LinearLayout.LayoutParams bottomLayout){
-        this.bottomLayout=bottomLayout;
+    public GroupDescriptor headerView(Context context){
+        this.headerView= LayoutInflater.from(context).inflate(R.layout.normal_split_view,null);
+        headerView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,40));
         return this;
     }
 
-    public GroupDescriptor headerLayout(LinearLayout.LayoutParams headerLayout){
-        this.headerLayout=headerLayout;
+    public GroupDescriptor headerView(View  headerView){
+        this.headerView=headerView;
         return this;
     }
 
-    public GroupDescriptor isHasPaddingTop(boolean isHasPaddingTop){
-        this.isHasPaddingTop=isHasPaddingTop;
+
+
+    public GroupDescriptor bottomView(Context context){
+        this.bottomView= LayoutInflater.from(context).inflate(R.layout.normal_split_view,null);
+        bottomView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,40));
         return this;
     }
 
-    public GroupDescriptor headerLabel(String headerLabel){
-        this.headerLabel=headerLabel;
+    public GroupDescriptor bottomView(View  bottomView){
+        this.bottomView=headerView;
         return this;
     }
 
-    public GroupDescriptor isHeaderHtml(boolean isHeaderHtml){
-        this.isHeaderHtml=isHeaderHtml;
-        return this;
-    }
+    public GroupDescriptor divider(int resId,LinearLayout.LayoutParams params){
+        if(resId>0){
+            this.dividerResId=resId;
+            dividerParams=params;
+        }
 
-    public GroupDescriptor headerSize(int headerSize){
-        this.headerSize=headerSize;
         return this;
     }
-
-    public GroupDescriptor headerBgColor(int headerBgColor){
-        this.headerBgColor=headerBgColor;
-        return this;
-    }
-
-    public GroupDescriptor bottomLabel(String bottomLabel){
-        this.bottomLabel=bottomLabel;
-        return this;
-    }
-
-    public GroupDescriptor bgColor(int bgColor){
-        this.bgColor=bgColor;
-        return this;
-    }
-
-    public GroupDescriptor dividerColor(int dividerColor){
-        this.dividerColor=dividerColor;
-        return this;
-    }
-
-    public GroupDescriptor headerTextColor(int headerTextColor){
-        this.headerTextColor=headerTextColor;
-        return this;
-    }
-
-    public GroupDescriptor bottomSize(int bottomSize){
-        this.bottomSize=bottomSize;
-        return this;
-    }
-
-    public GroupDescriptor bottomTextColor(int bottomTextColor){
-        this.bottomTextColor=bottomTextColor;
-        return this;
-    }
-
-    public GroupDescriptor bottomBgColor(int bottomBgColor){
-        this.bottomBgColor=bottomBgColor;
-        return this;
-    }
-    public GroupDescriptor setListener(OnRowChangedListener listener){
-        this.mListener=listener;
-        return this;
-    }
-
 
 
 }

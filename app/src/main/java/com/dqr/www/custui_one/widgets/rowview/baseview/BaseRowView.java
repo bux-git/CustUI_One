@@ -19,6 +19,7 @@ import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
 
 public abstract class BaseRowView<T extends BaseRowDescriptor> extends LinearLayout {
 
+    protected  Context mContext;
     protected int mBgResId = R.drawable.normal_row_selector;
     protected int mUnNormalBgResId =android.R.color.white;
     protected OnRowChangedListener mListener;
@@ -26,20 +27,27 @@ public abstract class BaseRowView<T extends BaseRowDescriptor> extends LinearLay
 
     public BaseRowView(Context context) {
         super(context);
+        mContext=context;
+        initView(context);
     }
 
     public BaseRowView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        mContext=context;
+        initView(context);
     }
 
     public BaseRowView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-
         super(context, attrs, defStyleAttr);
+        mContext=context;
+        initView(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public BaseRowView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        mContext=context;
+        initView(context);
     }
 
     public void setListener(OnRowChangedListener listener) {
@@ -50,11 +58,13 @@ public abstract class BaseRowView<T extends BaseRowDescriptor> extends LinearLay
         mBgResId = bgResId;
     }
 
+    public abstract void initView(Context context);
     public abstract void notifyDataChanged(T descriptor);
 
     public void notifyDataChanged(String content) {
 
     }
+
 
     public String getContent() {
         return null;

@@ -22,8 +22,6 @@ import static com.dqr.www.custui_one.R.id.tv_nice;
 
 public class MixRowView extends BaseRowView<MixDescriptor> implements View.OnClickListener {
 
-    private Context mContext;
-
     private ImageView mIvGirl;
     private TextView mNice;
     private TextView mNumber;
@@ -31,27 +29,22 @@ public class MixRowView extends BaseRowView<MixDescriptor> implements View.OnCli
 
     public MixRowView(Context context) {
         super(context);
-        initView(context);
     }
 
     public MixRowView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initView(context);
     }
 
     public MixRowView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initView(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public MixRowView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initView(context);
     }
 
-    private void initView(Context context){
-        mContext=context;
+    public void initView(Context context){
         inflate(context, R.layout.img_header_layout, this);
         mIvGirl = (ImageView) findViewById(R.id.iv_girl);
         mNice = (TextView) findViewById(tv_nice);
@@ -95,7 +88,7 @@ public class MixRowView extends BaseRowView<MixDescriptor> implements View.OnCli
     @Override
     public void onClick(View v) {
         if(mListener!=null){
-            mListener.onRowChanged(descriptor.rowId);
+            mListener.onRowChanged(v.getId());
         }
     }
 }

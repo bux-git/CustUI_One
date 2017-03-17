@@ -21,7 +21,6 @@ import com.dqr.www.custui_one.widgets.rowview.baseview.BaseRowView;
 
 public class NormalRowView extends BaseRowView<NormalDescriptor> implements View.OnClickListener {
 
-    private Context mContext;
     /**
      * 标签图片
      */
@@ -40,37 +39,32 @@ public class NormalRowView extends BaseRowView<NormalDescriptor> implements View
     public NormalRowView(Context context) {
         super(context);
         this.mContext=context;
-        initView();
     }
 
     public NormalRowView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.mContext=context;
-        initView();
     }
 
     public NormalRowView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext=context;
-        initView();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public NormalRowView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.mContext=context;
-        initView();
     }
 
-    /**
-     * 初始化View
-     */
-    private void initView(){
+    @Override
+    public void initView(Context context) {
         LayoutInflater.from(mContext).inflate(R.layout.normal_view_layout, this);
         mRowIconImg = (ImageView) findViewById(R.id.mRowIconImg);
         mRowLabel = (TextView) findViewById(R.id.mRowLabel);
         mRowActionImg = (ImageView) findViewById(R.id.mRowActionImg);
     }
+
 
 
     @Override

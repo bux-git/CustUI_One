@@ -8,7 +8,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.dqr.www.custui_one.widgets.rowview.bean.BaseRowDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.bean.GroupDescriptor;
+import com.dqr.www.custui_one.widgets.rowview.listener.OnRowChangedListener;
 
 import java.util.ArrayList;
 
@@ -22,8 +24,7 @@ public class ContainerView extends LinearLayout {
 
     private Context mContext;
     private ArrayList<GroupDescriptor> mGroupDescriptors;
-    private boolean hasPaddingTop;
-
+    private OnRowChangedListener mListener;
     public ContainerView(Context context) {
         super(context);
         initView(context);
@@ -62,6 +63,9 @@ public class ContainerView extends LinearLayout {
             LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             for(int i=0;i<mGroupDescriptors.size();i++){
                 groupView = new GroupView(mContext);
+                if(mListener!=null) {
+                    groupView.setListener(mListener);
+                }
                 groupView.initData(mGroupDescriptors.get(i));
 
                 addView(groupView,params);
@@ -73,4 +77,15 @@ public class ContainerView extends LinearLayout {
     }
 
 
+    public void setListener(OnRowChangedListener listener) {
+        mListener = listener;
+    }
+
+
+    public void DataChangeById(int rowId, BaseRowDescriptor descriptor){
+        BaseRowView rowView= (BaseRowView) findViewById(rowId);
+        if(rowView!=null){
+            rowView.notifyDataChanged(descriptor);
+        }
+    }
 }

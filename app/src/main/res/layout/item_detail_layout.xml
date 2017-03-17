@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginBottom="1px"
+    android:background="@android:color/white"
+    android:paddingLeft="@dimen/main_margin_left_right">
+
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        tools:text="真实姓名"
+        android:textColor="#a8a8a8"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_item_msg"
+        style="@style/card_personmal_friend_detail_more"/>
+    <Button
+        android:id="@+id/btn_item_control"
+        tools:background="@drawable/ic_key"
+        style="@style/card_personmal_friend_detail_more_btn"/>
+</RelativeLayout>
