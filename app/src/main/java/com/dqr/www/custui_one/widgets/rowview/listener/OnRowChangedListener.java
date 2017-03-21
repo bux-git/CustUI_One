@@ -10,4 +10,6 @@ public interface OnRowChangedListener {
     void onRowChanged(int rowId);
 
     void onRowChanged(int rowId, String content);
+
+    void onRowChanged(int rowId,int clickType);
 }

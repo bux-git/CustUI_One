@@ -66,7 +66,8 @@ public class ContainerView extends LinearLayout {
                 if(mListener!=null) {
                     groupView.setListener(mListener);
                 }
-                groupView.initData(mGroupDescriptors.get(i));
+                GroupDescriptor groupDescriptor=mGroupDescriptors.get(i);
+                groupView.initData(groupDescriptor);
 
                 addView(groupView,params);
             }

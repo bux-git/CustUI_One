@@ -5,4 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="holo_gray_bright">#33CCCCCC</color>
     <color name="lighter_gray">#ddd</color>
+
+    <color name="black_0">#000000</color>
+    <color name="black_2">#434343</color>
+    <color name="black_3">#333333</color>
+    <color name="black_f3">#f3f3f3</color>
+    <color name="black4">#8f8f8f</color>
+    <color name="black5">#8f8f8f</color>
 </resources>

@@ -141,4 +141,9 @@ public class DetailActivity extends AppCompatActivity implements OnRowChangedLis
     public void onRowChanged(int rowId, String content) {
 
     }
+
+    @Override
+    public void onRowChanged(int rowId, int clickType) {
+
+    }
 }

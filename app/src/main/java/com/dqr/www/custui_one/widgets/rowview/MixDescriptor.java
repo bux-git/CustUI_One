@@ -24,6 +24,9 @@ public class MixDescriptor extends BaseRowDescriptor {
         super(rowId);
     }
 
+
+
+
     public MixDescriptor girl(int girl) {
         this.mGirl = girl;
         return this;

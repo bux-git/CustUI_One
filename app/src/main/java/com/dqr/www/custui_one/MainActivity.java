@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
     @Override
     public void onRowChanged(int rowId) {
         if(rowId==R.id.iv_girl) {
-            Toast.makeText(this, rowId + " ImageView clicked", Toast.LENGTH_SHORT).show();
+           startActivity(new Intent(MainActivity.this,BgImgActivity.class));
         }else if(rowId==R.drawable.girl){
             Intent intent = new Intent(MainActivity.this, DetailActivity.class);
             startActivity(intent);
@@ -126,6 +126,11 @@ public class MainActivity extends AppCompatActivity implements OnRowChangedListe
 
     @Override
     public void onRowChanged(int rowId, String content) {
+
+    }
+
+    @Override
+    public void onRowChanged(int rowId, int clickType) {
 
     }
 }

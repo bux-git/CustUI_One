@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_diary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBgImageOne"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/bg_mine_smart_life"
+    />
+
+    <Button
+        android:id="@+id/btnEditOne"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_mine_edit"/>
+    <TextView
+        android:id="@+id/tvTitleOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivBgImageOne"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/mine_tv_text_margin_top"
+        tools:text="@string/mine_tv_diary_title"
+        android:textColor="@color/black_2"
+        android:textSize="@dimen/mine_tv_text_size_bg"/>
+    <TextView
+        android:id="@+id/tvDetailOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitleOne"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/mine_tv_text_margin_Bottom"
+        android:text="@string/mine_tv_diary_detail"
+        android:textColor="@color/black5"
+        android:textSize="@dimen/mine_text_size_big"/>
+</RelativeLayout>

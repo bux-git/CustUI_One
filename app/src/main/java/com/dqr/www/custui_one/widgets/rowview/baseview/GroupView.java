@@ -7,6 +7,8 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import com.dqr.www.custui_one.widgets.rowview.BgImageDescriptor;
+import com.dqr.www.custui_one.widgets.rowview.BgImageRowView;
 import com.dqr.www.custui_one.widgets.rowview.MixDescriptor;
 import com.dqr.www.custui_one.widgets.rowview.MixRowView;
 import com.dqr.www.custui_one.widgets.rowview.autograph.AutographDescriptor;
@@ -54,11 +56,12 @@ public class GroupView extends LinearLayout {
 
     private void initView(Context context){
         this.mContext=context;
-        setOrientation(VERTICAL);
+
     }
 
     public void initData(GroupDescriptor descriptor){
         this.mGroupDescriptor=descriptor;
+        setOrientation(descriptor.mOrientation);
         setBackgroundResource(descriptor.bgColor);
         notifyDataChanged();
     }
@@ -84,6 +87,8 @@ public class GroupView extends LinearLayout {
                     rowView = new DetailRowView(mContext);
                 }else if(descriptor instanceof AutographDescriptor){
                     rowView = new AutographRowView(mContext);
+                }else if(descriptor instanceof BgImageDescriptor){
+                    rowView = new BgImageRowView(mContext);
                 }
                 rowView.setId(descriptor.rowId);
                 if(mListener!=null) {
@@ -92,7 +97,9 @@ public class GroupView extends LinearLayout {
                 rowView.notifyDataChanged(descriptor);
                 addView(rowView);
                 if(i!=mGroupDescriptor.mDescriptors.size()-1){
-                    addView(inflate(mContext,mGroupDescriptor.dividerResId,null),mGroupDescriptor.dividerParams);
+                    if(mGroupDescriptor.dividerResId>0) {
+                        addView(inflate(mContext, mGroupDescriptor.dividerResId, null), mGroupDescriptor.dividerParams);
+                    }
                 }
             }
         }

@@ -31,6 +31,8 @@ public class GroupDescriptor {
     //背景颜色
     public int bgColor = android.R.color.white;
 
+    //方向
+    public int mOrientation=LinearLayout.VERTICAL;
 
     public ArrayList<BaseRowDescriptor> mDescriptors;
 
@@ -75,13 +77,17 @@ public class GroupDescriptor {
     }
 
     public GroupDescriptor divider(int resId,LinearLayout.LayoutParams params){
-        if(resId>0){
             this.dividerResId=resId;
             dividerParams=params;
-        }
+
 
         return this;
     }
 
+
+    public GroupDescriptor orientation(int orientation){
+        this.mOrientation=orientation;
+        return this;
+    }
 
 }
